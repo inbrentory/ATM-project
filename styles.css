@@ -1,3 +1,9 @@
+#body {
+  background-color: #707d47;
+  font-family: 'Spartan', sans-serif;
+  text-align: center;
+  color: white
+}
 button {
   background-color: #0c80f3;
   border: 6px solid #0ff166;
@@ -6,6 +12,23 @@ button {
 }
 
 select {
-  display: block;
-  margin-bottom: 20px;
+  width: 500px;
+  margin-bottom: 30px;
+  color: grey;
+  background-color: white;
+
 }
+
+.total {
+  color: #d3f740;
+  font-size: bold;
+  border: 5px solid white;
+}
+
+.header {
+ color: white;
+ font-family: 'Spartan', sans-serif;
+ font-weight: bold;
+ text-align: center;
+}
+

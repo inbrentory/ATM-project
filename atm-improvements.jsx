@@ -4,7 +4,7 @@ const ATMDeposit = ({ onChange, isDeposit, isValid }) => {
   const choice = ['Deposit', 'Cash Back'];
   console.log(`ATM isDeposit: ${isDeposit}`);
   return (
-    <label className="label huge">
+    <label className="label">
       <h3> {choice[Number(!isDeposit)]}</h3>
       <input id="number-input" type="number" width="200" onChange={onChange}></input>
       {/* 2.3> Disable attribute block the process, JS will not run, following the isValid where 
@@ -25,6 +25,7 @@ const Account = () => {
   const [validTransaction, setValidTransaction] = React.useState(false);
 
   let status = `Account Balance $ ${totalState} `;
+  let saving = `You should be saving $ ${totalState * 0.20} this month `;
   console.log(`Account Rendered with isDeposit: ${isDeposit}`);
   
   const handleChange = (event) => {
@@ -68,8 +69,9 @@ const Account = () => {
       console.log(event.target.value);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <h2 id="total">{status}</h2>
+    <form onSubmit={handleSubmit} id="form">
+      <h2 className="total">{status}</h2>
+      <h5 className="saving">{saving}</h5>
       <label>Select an action below to continue</label>
          {/*  1.2> Here is the 3 possible MODE */}
           <select onChange={(e) => handleModeSelect(e)} name="mode" id="mode-select">
@@ -80,7 +82,6 @@ const Account = () => {
 
           {/* 1.4 - 1.5> we add the consition on to the orgianl one below-
           <ATMDeposit onChange={handleChange} isDeposit={isDeposit}></ATMDeposit>*/}
-
           {
           ATMMode && <ATMDeposit onChange={handleChange} isDeposit={isDeposit} isValid={validTransaction}></ATMDeposit>
           }
